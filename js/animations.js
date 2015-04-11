@@ -25,21 +25,29 @@ $(document).ready(function() {
   })
   var stoptweet = function() {
     if (($('textarea').val().length) >= 140) {
-      $('.button').css({
-        'background': 'red',
-        'color': 'black'
-      });
       $('.button').prop('disabled', true);
     } else {
-      $('.button').css('background', '');
       $('.button').prop('disabled', false);
     }
   };
 
-})
-$('#tweet-content', '.tweet-compose').on('click', function() {
-$('textarea').val()
-})
+  $('.button').on('click', function() {
+    $('#content').prepend('click', function() {
+      var avat = $('.avatar').val();
+      var tcontent = $('#tweet-content').val();
+      var tcompose = $('#tweet-compose').val();
+      var tcontrols = $('#tweet-controls').val();
+      var tactions = $('tweet-actions').val();
+      var ttext = $('.tweet-text').val();
+      var stat = $('.stats').val();
+      var favs = $('.favorites').val();
+      var interac = $('.users-interact').val();
+      var rep = $('.reply').val();
+      var time = $('.time').val();
+      $(this).html('avat' + 'tcontent' + 'tcompose' + 'tcontrols' + 'tactions' + 'ttext' + 'stat' + 'favs' + 'interac' + 'rep' + 'time');
+
+    })
+  })
 
 
 
