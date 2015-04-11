@@ -1,4 +1,10 @@
 $(document).ready(function() {
+  var userName = 'jrob';
+  var fullName = $('#profile-summary p:first').text();
+  var avatar = $('#profile-summary img:first').attr('src'); 
+  
+
+
 
   $('textarea').blur(function() {
     if (!$(this).val()) {
@@ -31,23 +37,18 @@ $(document).ready(function() {
     }
   };
 
-  $('.button').on('click', function() {
-    $('#content').prepend('click', function() {
-      var avat = $('.avatar').val();
-      var tcontent = $('#tweet-content').val();
-      var tcompose = $('#tweet-compose').val();
-      var tcontrols = $('#tweet-controls').val();
-      var tactions = $('tweet-actions').val();
-      var ttext = $('.tweet-text').val();
-      var stat = $('.stats').val();
-      var favs = $('.favorites').val();
-      var interac = $('.users-interact').val();
-      var rep = $('.reply').val();
-      var time = $('.time').val();
-      $(this).html('avat' + 'tcontent' + 'tcompose' + 'tcontrols' + 'tactions' + 'ttext' + 'stat' + 'favs' + 'interac' + 'rep' + 'time');
+  $('#tweet-submit').on('click', function() {
+    var text = $('.tweet-compose:first').val();
+    var firsttweet = $('#stream > .tweet:first').clone();
+    firsttweet.find('.avatar').attr('src', avatar);
+    firsttweet.find('.fullname').text(fullName)
+    firsttweet.find('.username').text(userName);
+    firsttweet.find('.tweet-text').text(text);
 
-    })
-  })
+
+    $('#stream').prepend(firsttweet);
+    
+  });
 
 
 
